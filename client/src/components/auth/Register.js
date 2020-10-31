@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../../providers/AuthProvider";
 import { Segment } from 'semantic-ui-react';
-import {Button, Header, Form, Input, Label, FormWrapper, } from '../../styles/SharedElements';
+
 
 class Register extends React.Component {
   state = { firstName: '', lastName: '', email: '', password: '', passwordConfirmation: '' };
@@ -24,11 +24,11 @@ class Register extends React.Component {
   render() {
     const { email, password, passwordConfirmation, firstName, lastName } = this.state;
     return (
-      <FormWrapper>
-        <Header as='h1' textAlign='center'>Register</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Label>First Name</Label>
-            <Input
+      <div>
+        <h1>Register</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label>First Name</label>
+            <input
                 label="First Name"
                 required
                 autoFocus
@@ -37,8 +37,8 @@ class Register extends React.Component {
                 placeholder='First Name'
                 onChange={this.handleChange}
               />
-              <Label>Last Name</Label>
-              <Input
+              <label>Last Name</label>
+              <input
                 label="lastName"
                 required
                 autoFocus
@@ -47,8 +47,8 @@ class Register extends React.Component {
                 placeholder='Last Name'
                 onChange={this.handleChange}
               />
-              <Label>Email</Label>
-              <Input
+              <label>Email</label>
+              <input
                 label="Email"
                 required
                 autoFocus
@@ -57,8 +57,8 @@ class Register extends React.Component {
                 placeholder='Email'
                 onChange={this.handleChange}
               />
-              <Label>Password</Label>
-              <Input
+              <label>Password</label>
+              <input
                 Label="Password"
                 required
                 name='password'
@@ -67,8 +67,8 @@ class Register extends React.Component {
                 type='password'
                 onChange={this.handleChange}
               />
-              <Label>Password Confirmation</Label>
-              <Input
+              <label>Password Confirmation</label>
+              <input
                 label="Password Confirmation"
                 required
                 name='passwordConfirmation'
@@ -77,11 +77,11 @@ class Register extends React.Component {
                 type='password'
                 onChange={this.handleChange}
               />
-            <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
-          </Segment>
-        </Form>
-      </FormWrapper>
+            <div>
+            <button primary type='submit'>Submit</button>
+          </div>
+        </form>
+      </div>
     )
   }
 }

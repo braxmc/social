@@ -1,12 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../../providers/AuthProvider";
 
-import { Form, Wrapper, Header, ButtonWrapper, FormInput, Button, Img, HomeBg } from '../../styles/FormElements';
-
-// import { Img, HomeBg } from '../../styles/SharedElements';
-
-import Bg from '../../images/bg.jpg';
-
 class Login extends React.Component {
   state = { email: '', password: '' }
 
@@ -25,10 +19,10 @@ class Login extends React.Component {
     const { email, password, } = this.state;
 
     return (
-      <Wrapper>
-        <Header>Login</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <FormInput
+      <div>
+        <header>Login</header>
+        <form onSubmit={this.handleSubmit}>
+          <input
             label="Email"
             autoFocus
             required         
@@ -37,7 +31,7 @@ class Login extends React.Component {
             placeholder='Email'
             onChange={this.handleChange}
           />
-          <FormInput
+          <input
             label="Password"
             required
             name='password'
@@ -46,11 +40,11 @@ class Login extends React.Component {
             type='password'
             onChange={this.handleChange}
           />
-          <ButtonWrapper>
-            <Button primary type='submit'>Submit</Button>
-          </ButtonWrapper>
-        </Form>
-      </Wrapper>
+          <div>
+            <button primary type='submit'>Submit</button>
+          </div>
+        </form>
+      </div>
     )
   }
 }
