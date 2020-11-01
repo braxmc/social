@@ -15,6 +15,12 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 // home
 import Home from './components/home/Home';
 
+// profile
+import Profile from './components/profile/Profile';
+
+//feed
+import Feed from './components/feed/Feed';
+
 const App = () => (
     <>
       <Navbar />
@@ -23,6 +29,8 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/feed' component={Feed} />
         </Switch>
       </FetchUser>
     </>

@@ -12,8 +12,8 @@ import NavbarElements from './NavbarElements';
       return (
         <>
          <Link to='/'>Home</Link>
-         <Link to='/'>Profile</Link>
-         <Link to='/'>Feed</Link>
+         <Link to='/profile'>Profile</Link>
+         <Link to='/feed'>Feed</Link>
          <Link onClick={ () => handleLogout(props.history)} to='/'>Log Out</Link>
         </>
       )
