@@ -3,36 +3,39 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
-import NavbarElements from './NavbarElements';
+import { NavWrap, NavLinks, NavLink, Img } from './NavbarElements';
+
+import logo from '../../images/b-logo.jpg';
 
  const Navbar = (props) => {
   const navAuth = () => {
     const {user, handleLogout} = props.auth;
     if (user) {
       return (
-        <>
-         <Link to='/'>Home</Link>
-         <Link to='/profile'>Profile</Link>
-         <Link to='/feed'>Feed</Link>
-         <Link onClick={ () => handleLogout(props.history)} to='/'>Log Out</Link>
-        </>
+        <NavLinks>
+         <NavLink to='/'>Home</NavLink>
+         <NavLink to='/profile'>Profile</NavLink>
+         <NavLink to='/feed'>Feed</NavLink>
+         <NavLink onClick={ () => handleLogout(props.history)} to='/'>Log Out</NavLink>
+        </NavLinks>
       )
     } else {
      return (
-       <>
+       <NavLinks>
          <Link to='/login'>Log in</Link>
          <Link to='/register'>Sign Up</Link>
-       </>
+       </NavLinks>
      )
     }
   }
 
    return (
-    <div className="navContainer">
-        <div className='leftWrap'>
-        </div>
+    <NavWrap>
+      <div>
+        <img src={logo} alt='coder logo' />
+      </div>
       {navAuth()}
-    </div>
+    </NavWrap>
   )
  }
 

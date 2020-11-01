@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.21.0",
-    "devise-axios": "^1.0.24"
+    "devise-axios": "^1.0.24",
+    "styled-components": "^5.2.1"
   }
 }
