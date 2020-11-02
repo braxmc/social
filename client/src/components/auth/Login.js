@@ -1,6 +1,8 @@
 import React from 'react';
 import { AuthConsumer, } from "../../providers/AuthProvider";
 
+import  { Link } from 'react-router-dom'
+
 class Login extends React.Component {
   state = { email: '', password: '' }
 
@@ -41,7 +43,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
           <div>
-            <button primary type='submit'>Submit</button>
+              <button primary type='submit'>Submit</button>
           </div>
         </form>
       </div>
