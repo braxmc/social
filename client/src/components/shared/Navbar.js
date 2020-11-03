@@ -22,8 +22,8 @@ import logo from '../../images/b-logo.jpg';
     } else {
      return (
        <NavLinks>
-         <Link to='/login'>Log in</Link>
-         <Link to='/register'>Sign Up</Link>
+         <NavLink to='/login'>Log in</NavLink>
+         <NavLink to='/register'>Sign Up</NavLink>
        </NavLinks>
      )
     }
