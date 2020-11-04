@@ -1,12 +1,23 @@
 import React from 'react';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
-const Profile = () => {
+import Posts from '../post/Posts';
+
+const Profile = (props) => {
 
   return (
     <>
-      <h1>Profile</h1>
+      {props.auth.user.id}
     </>
   )
 }
 
-export default Profile;
+const ConnectedProfile = (props) => (
+  <AuthConsumer>
+    { auth =>
+      <Profile {...props} auth={auth}/>
+    }
+  </AuthConsumer>
+)
+
+export default ConnectedProfile;
