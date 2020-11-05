@@ -9,15 +9,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import AuthProvider from './providers/AuthProvider';
+import PostProvider from './providers/PostProvider';
 
 initMiddleware();
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <PostProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PostProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')

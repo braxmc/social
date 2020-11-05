@@ -10,12 +10,35 @@ const Posts = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
 
   useEffect(() => {
-    props.getPosts(props.auser_id)
-  })
+    // props.getPosts()
+  }, [])
+
+  const listPosts = () => {
+    // if (props.posts.length !== 0) {
+    //   return (
+    //     <ul>
+    //       { props.posts.map( p =>
+    //         <Post {...p} />  
+    //       )}
+    //     </ul>
+    //   )
+    // } else {
+    //   return (<h1>No Posts</h1>)
+    // }
+  }
  
   return (
     <>
-
+      <button onClick={() => setToggleForm(!toggleForm)}>
+         {toggleForm ? 'Exit' : 'Add Post'} 
+      </button>
+      {
+        toggleForm ?
+        <PostForm addPost={props.addPost} toggleForm={setToggleForm} />
+        :
+        <></>
+      }
+      {listPosts()}
     </>
   )
 }

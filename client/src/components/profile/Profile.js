@@ -7,7 +7,8 @@ const Profile = (props) => {
 
   return (
     <>
-      {props.auth.user.id}
+      user_id:{props.auth.user.id}
+      <Posts />
     </>
   )
 }
@@ -15,7 +16,7 @@ const Profile = (props) => {
 const ConnectedProfile = (props) => (
   <AuthConsumer>
     { auth =>
-      <Profile {...props} auth={auth}/>
+      <Profile {...props} auth={auth} />
     }
   </AuthConsumer>
 )
