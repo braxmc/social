@@ -8,7 +8,7 @@ const Profile = (props) => {
   return (
     <>
       user_id:{props.auth.user.id}
-      <Posts />
+      <Posts user_id={props.auth.user.id} />
     </>
   )
 }

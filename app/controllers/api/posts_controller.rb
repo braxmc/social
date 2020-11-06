@@ -5,20 +5,41 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+    post = Post.new(description: params[:description])
+
+   file = params[:file]
+    if file != ''
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        post.image = cloud_image['secure_url']
+      end
+    end
+
     if post.save
       render json: post
     else
-      render json: { errors: room.errors }, status: :unprocessable_entity
+      render json: { errors: post.errors }, status: :unprocessable_entity
     end
   end
 
   def update
     post = Post.find(params[:id])
+    post.description = params[:description] ? params[:description] : plant.description
+
+    file = params[:file]
+    if file != ''
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        post.image = cloud_image['secure_url']
+      end
+    end
+
     if post.update(post_params)
       render json: post
     else
-      render json: { errors: room.errors }, status: :unprocessable_entity
+      render json: { errors: rpost.errors }, status: :unprocessable_entity
     end
   end
 

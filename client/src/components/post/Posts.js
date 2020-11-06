@@ -10,21 +10,21 @@ const Posts = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
 
   useEffect(() => {
-    // props.getPosts()
+    props.getPosts()
   }, [])
 
   const listPosts = () => {
-    // if (props.posts.length !== 0) {
-    //   return (
-    //     <ul>
-    //       { props.posts.map( p =>
-    //         <Post {...p} />  
-    //       )}
-    //     </ul>
-    //   )
-    // } else {
-    //   return (<h1>No Posts</h1>)
-    // }
+    if (props.posts.length !== 0) {
+      return (
+        <div>
+          { props.posts.map( p =>
+            <Post {...p} />  
+          )}
+        </div>
+      )
+    } else {
+      return (<h1>No Posts</h1>)
+    }
   }
  
   return (
@@ -34,7 +34,7 @@ const Posts = (props) => {
       </button>
       {
         toggleForm ?
-        <PostForm addPost={props.addPost} toggleForm={setToggleForm} />
+        <PostForm addPost={props.addPost} toggle={setToggleForm} />
         :
         <></>
       }

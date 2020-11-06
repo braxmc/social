@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+import Dropzone from 'react-dropzone'
+
 const PostForm = (props) => {
   const [description, setDescription] = useState('')
   const [file, setFile] = useState('')
@@ -7,7 +9,7 @@ const PostForm = (props) => {
   useEffect(() => {
     if (props.post) {
       setDescription(props.post.description)
-      setFile(props.posts.file)
+      setFile(props.post.file)
     }
   }, [])
 
@@ -22,18 +24,22 @@ const PostForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.post) {
-      props.updatePost(props.post.id, {description: description, file: file})
-      props.toggleEdit()
+      props.updatePost(props.post.id, {description, file})
+      props.toggleEdit(false)
     } else {
-      props.addPost({description: description, file: file})
-      props.toggle()
+      props.addPost(props.user_id, {description, file})
+      props.toggle(false)
     }
+  }
+
+  const onDrop = (files) => {
+    setFile(files[0])
   }
 
   return (
     <>
-      <form>
-        {/* <DropDiv>
+      <form onSubmit={handleSubmit}>
+        <div>
             <Dropzone
               onDrop={onDrop}
               multiple={false}
@@ -55,7 +61,7 @@ const PostForm = (props) => {
                 )
               }}
             </Dropzone>
-          </DropDiv> */}
+          </div>
         <input 
         label='description'
         placeholder='Write post...'
@@ -69,5 +75,19 @@ const PostForm = (props) => {
   )
 
 }
+
+const styles = {
+  dropzone: {
+    height: "150px",
+    width: "150px",
+    border: "1px dashed black",
+    borderRadius: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "10px",
+  },
+}
+
 
 export default PostForm;

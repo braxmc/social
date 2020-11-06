@@ -18,7 +18,10 @@ const PostProvider = ({children}) => {
   }
 
   const addPost = (post) => {
-    axios.post('/api/posts', {post})
+    let data = new FormData()
+    data.append('file', post.file)
+    data.append('description', post.description)
+    axios.post(`/api/posts?description=${post.description}`, data)
     .then( res => {
       setPosts([...posts, res.data])
     })
@@ -37,7 +40,7 @@ const PostProvider = ({children}) => {
     axios.delete(`/api/posts/${id}`)
     .then( res => {
       setPosts(posts.filter(p => p.id !== id))
-      window.location.href='/rooms'
+      window.location.href='/profile'
     })
     .catch(err => console.log(err))
   }
