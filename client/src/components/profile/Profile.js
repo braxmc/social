@@ -8,6 +8,8 @@ const Profile = (props) => {
   return (
     <>
       user_id:{props.auth.user.id}
+      <br />
+      name: {props.auth.user.first_name}
       <Posts user_id={props.auth.user.id} />
     </>
   )
