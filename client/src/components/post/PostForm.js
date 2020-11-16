@@ -27,7 +27,7 @@ const PostForm = (props) => {
       props.updatePost(props.post.id, {description, file})
       props.toggleEdit(false)
     } else {
-      props.addPost(props.user_id, {description, file})
+      props.addPost({description, file})
       props.toggle(false)
     }
   }
