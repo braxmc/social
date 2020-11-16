@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
+
 import {AuthConsumer} from '../../providers/AuthProvider'
+
+import Posts from '../post/Posts'
+
 import Dropzone from 'react-dropzone'
 
 const Profile = (props) => {
@@ -89,6 +93,9 @@ const Profile = (props) => {
   <button className='profile-button' onClick={() => setToggleEdit(!toggleEdit)}>
     {toggleEdit ? 'Exit' : 'Edit'}
   </button>
+  <br />
+  <p>-------------------</p>
+  <Posts />
     </>
   )
 }
